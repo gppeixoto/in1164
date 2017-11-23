@@ -10,7 +10,6 @@ from keras.callbacks import EarlyStopping
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_recall_fscore_support as prfs
 from sklearn.model_selection import train_test_split
-from seq2seq.models import AttentionSeq2Seq
 
 ############################################################
 #################### Data Loading ##########################
