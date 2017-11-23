@@ -65,8 +65,7 @@ def per_word_attn_vector(inputs, suffix="1"):
     attention_vec = multiply([inputs, attention_probs])
     return attention_vec
 
-shared_lstm = Bidirectional(LSTM(25, return_sequences=True), name='shared_bilstm')
-shared_lstm_out = Bidirectional(LSTM(25), name='shared_bilstm_out')
+shared_lstm = Bidirectional(LSTM(150, return_sequences=True), name='shared_bilstm')
 
 x = shared_lstm(x)
 x = per_word_attn_vector(x)
