@@ -57,14 +57,6 @@ embedding_layer = Embedding(
 )
 
 x = embedding_layer(input1)
-
-def per_word_attn_vector(inputs, suffix="1"):
-    a = Permute((2, 1), name='permute_{}'.format(suffix))(inputs)
-    attention_probs = Dense(50, activation='softmax', name='attnprobs_{}'.format(suffix))(a)
-    attention_probs = Permute((2, 1), name='permuteback_{}'.format(suffix))(attention_probs)
-    attention_vec = merge([inputs, attention_probs], mode='mul', name='attnlayer_{}'.format(suffix))
-    return attention_vec
-
 shared_lstm = Bidirectional(LSTM(150), name='shared_bilstm')
 x = shared_lstm(x)
 
